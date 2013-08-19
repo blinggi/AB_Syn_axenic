@@ -9,9 +9,18 @@ fold.change.working.1 = as.data.frame(norm1.output)
 fold.change.working.1[fold.change.working.1==0] = .123
 attach(fold.change.working.1)
 
+# need to annotate below for conditions (automate TODO)
+FC.HLHO.div.LL_HO2 = HL_HO2/LL_HO2
+FC.HLHO.div.LL_LO2 = HL_HO2/LL_LO2
+FC.HLHO.div.HL_LO2 = HL_HO2/HL_LO2
+FC.LLHO.div.LL_LO2 = LL_HO2/LL_LO2
+FC.LLHO.div.HL_LO2 = LL_HO2/HL_LO2
+FC.LLLO.div.HL_LO2 = LL_LO2/HL_LO2
 
-FC.HLHO.div.C_Lim = Shew_HL_HO2/C_lim_CC
-FC.HLHO.div.lact = Shew_HL_HO2/Lactate_CC
-FC.C_lim.div.lac = C_lim_CC/Lactate_CC
-
-FC.all.conds.output = cbind(norm1.output,cbind(FC.HLHO.div.C_Lim, cbind(FC.HLHO.div.lact, FC.C_lim.div.lac)))
+#need to manually bind the cols below
+FC.all.conds.output = cbind(norm1.output,cbind(FC.HLHO.div.HL_LO2, 
+                                               cbind(FC.HLHO.div.LL_HO2),
+                                               cbind(FC.HLHO.div.LL_LO2),
+                                               cbind(FC.LLHO.div.HL_LO2),
+                                               cbind(FC.LLHO.div.LL_LO2),
+                                                     FC.LLLO.div.HL_LO2))
